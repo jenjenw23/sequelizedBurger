@@ -7,15 +7,15 @@
     <div class="col-lg-6 text-center">
       <h2>Ready to Eat!</h2>
       <ol>
+        <!--move burger and buttons from partials-->
         {{#each burgers}} {{#unless devoured}}
-        <li>{{this.burger_name}}</li>
-        {{/unless}} {{/each}}
-         {{!--
-        <button class="change-state" data-id="{{id}}" data-newstate="{{devoured}}">
-          {{#if devoured}}Devour!{{/if}}
-        </button> --}}
-
-        <!--{{#unless devoured}} {{> burgers/burger-block devoured=true}} {{/unless}}-->
+        <li>{{this.burger_name}}
+          <!--needed to be inside the li so show up correctly}-->
+          <button class="change-state" data-id="{{id}}" data-newstate="{{devoured}}">
+            {{#unless devoured}}Devour!{{/unless}}
+          </button>
+        </li>
+        {{/unless}} {{/each}} 
       </ol>
     </div>
     <div class="col-lg-6 text-center">

@@ -31,7 +31,8 @@ router.put("/api/burgers/:id", function (req, res) {
         id: req.params.id
       }
     }).then(function () {
-      res.redirect("/");
+      //needs 200 to reload page when successful
+      res.redirect(200, "/");
     });
 });
 
