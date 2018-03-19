@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Burger Time!</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto:700" rel="stylesheet">
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="/assets/js/burgers.js"></script>
+<link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+</head>
+<body>
+<div class="container">
+<div class="row">
+  <div class="col-lg-6 text-center"> <img src="assets/images/neon-burger.jpg" width="650" height="334" alt="Burger Time logo"/> </div>
+</div>
+<div class="row" style="margin-top: 15px;">
+  <div class="col-lg-6 text-center">
+    <h2>Ready to Eat!</h2>
+    <ol>
+      {{#each burgers}} {{#unless devoured}} {{> burgers/burger-block devoured=true}} {{/unless}} {{/each}}
+    </ol>
+  </div>
+  <div class="col text-center">
+    <h2>That was Yummy!</h2>
+    <ol>
+      {{#each burgers}} {{#if this.devoured}}
+      <li class="finished"> {{this.burger_name}} </li>
+      {{/if}} {{/each}}
+    </ol>
+  </div>
+</div>
+<div class="row"  style="margin-top: 15px;">
+  <div class="col-lg-4 text-center"> </div>
+  <div class="col-lg-4 text-center"> 
+    <!-- Add   -->
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title"><strong>Add a burger</strong></h3>
+      </div>
+      <div class="panel-body"> 
+        
+        <!-- Entry Form -->
+        <form class="create-form">
+          <div class="form-group">
+            <label for="ca">Burger Name:</label>
+            <input type="text" id="ca" name="name">
+          </div>
+          <div class="form-group">
+          <label for="devoured">What kind of burger do you want to eat?</label>
+          <br>
+          <!-- <input type="radio" name="devoured" value="1" checked>
+                Devoured! <br>
+                <input type="radio" name="devoured" value="0">
+                Not Yet! </div>-->
+          <button type="submit">Add Burger</button>
+        </form>
+        <div class="col-lg-4 text-center"> </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
